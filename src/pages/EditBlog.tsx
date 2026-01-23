@@ -124,20 +124,22 @@ const EditBlog = () => {
                             </div>
                             <div className="card-body border-card rounded-bottom">
                                 <form onSubmit={handleEdit}>
-                                    <label htmlFor="" className="ms-2 mb-1 text-size-14"><b><i>Title</i></b></label>
-                                    <input className="form-control form-control-sm mb-2" style={{ border: '1px solid black', borderRadius: '10px' }} type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
+                                    <div className="container-fluid">
+                                        <label htmlFor="" className="ms-2 mb-1 text-size-14"><b><i>Title</i></b></label>
+                                        <input className="form-control form-control-sm mb-2" style={{ border: '1px solid black', borderRadius: '10px' }} type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
 
-                                    <label htmlFor="" className="ms-2 mb-1 text-size-14"><b><i>Content</i></b></label>
-                                    <textarea className="form-control form-control-sm mb-2" style={{ border: '1px solid black', borderRadius: '10px' }} placeholder="Content" rows={7} value={content} onChange={(e) => setContent(e.target.value)} required />
+                                        <label htmlFor="" className="ms-2 mb-1 text-size-14"><b><i>Content</i></b></label>
+                                        <textarea className="form-control form-control-sm mb-2" style={{ border: '1px solid black', borderRadius: '10px' }} placeholder="Content" rows={7} value={content} onChange={(e) => setContent(e.target.value)} required />
 
-                                    <label htmlFor="" className="ms-2 mb-1 text-size-14"><b><i>Picture/Image</i></b></label>
-                                    <input className="form-control form-control-sm mb-2" style={{ border: '1px solid black', borderRadius: '10px' }} type="file" accept="image/*" onChange={(e) => setImage(e.target.files?.[0] || null)} />
-                                    {existingImage && (<img src={existingImage} alt="Current Image" className="mt-2 existing-image mb-5"/>)}
-                                    
-                                    <button className="shadow-xl createBlog-button float-end" disabled={loading}>
-                                        <b>{loading ? 'Updating...' : 'Update Blog'}</b>
-                                    </button>
-                                    <Link to="/dashboard"><button className="shadow-xl back-button float-end" type="button"><b>Back</b></button></Link>
+                                        <label htmlFor="" className="ms-2 mb-1 text-size-14"><b><i>Picture/Image</i></b></label>
+                                        <input className="form-control form-control-sm mb-2" style={{ border: '1px solid black', borderRadius: '10px' }} type="file" accept="image/*" onChange={(e) => setImage(e.target.files?.[0] || null)} />
+                                        {existingImage && (<img src={existingImage} alt="Current Image" className="mt-2 img-fluid existing-image mb-5"/>)}
+                                        
+                                        <button className="shadow-xl createBlog-button float-end" disabled={loading}>
+                                            <b>{loading ? 'Updating...' : 'Update Blog'}</b>
+                                        </button>
+                                        <Link to="/dashboard"><button className="shadow-xl back-button float-end" type="button"><b>Back</b></button></Link>
+                                    </div>
                                 </form>
                             </div>
                         </div>
