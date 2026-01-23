@@ -53,10 +53,10 @@ const Dashboard = () => {
     return (
         <div>
             <nav>
-                <Link className="nav-text-1 ms-4 mt-3 btn btn-sm" to=""><b>Timeline</b></Link>
-                <Link className="nav-text-2 nav-button ms-4 mt-3 btn btn-sm" to="/"><b>Home</b></Link>
-                <Link className="nav-text-2 nav-button ms-4 mt-3 btn btn-sm" to="/profile"><b>Profile</b></Link>
-                <Link className="float-end me-4 nav-text-2 nav-button mt-3 btn btn-sm" to="/logout"><b>Logout</b></Link>
+                <Link className="nav-text-1 ms-2 mt-3 btn btn-sm" to=""><b>Timeline</b></Link>
+                <Link className="nav-text-2 nav-button ms-2 mt-3 btn btn-sm" to="/"><b>Home</b></Link>
+                <Link className="nav-text-2 nav-button ms-2 mt-3 btn btn-sm" to="/profile"><b>Profile</b></Link>
+                <Link className="float-end me-4 nav-text-2 nav-button btn btn-sm" style={{ marginTop: '20px' }} to="/logout"><b>Logout</b></Link>
             </nav>
             <hr />
 

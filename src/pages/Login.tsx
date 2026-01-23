@@ -35,10 +35,10 @@ const Login = () => {
                             <h1 className="mb-4"><b>Login</b></h1>
 
                             <form onSubmit={handleLogin}>
-                                <input className="form-control form-control-sm shadow mb-1 border border-3" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                                <input className="form-control form-control-sm mb-1" style={{ border: '1px solid black', borderRadius: '10px' }} type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                                 <br />
 
-                                <input className="form-control form-control-sm shadow mb-1 border border-3" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                                <input className="form-control form-control-sm mb-1" style={{ border: '1px solid black', borderRadius: '10px' }} type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                                 <p className="mt-3 p-text">Create Account? <Link to="/register">Register Here</Link></p>
                                 <br />
 

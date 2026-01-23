@@ -51,11 +51,11 @@ const Home = () => {
     return (
         <div>
             <nav>
-                <Link className="nav-text-1 ms-4 mt-3 btn btn-sm" to=""><b>Home</b></Link>
+                <Link className="nav-text-1 ms-2 mt-3 btn btn-sm" to=""><b>Home</b></Link>
                 {user ? (
                     <>
-                        <button className="float-end me-4 nav-text-2 nav-button mt-3 btn btn-sm" onClick={handleLogout}><b>Logout</b></button>
-                        <Link className="nav-text-2 nav-button ms-4 mt-3 btn btn-sm" to="/dashboard"><b>Timeline</b></Link>
+                        <button className="float-end me-4 nav-text-2 nav-button btn btn-sm" style={{ marginTop: '20px' }} onClick={handleLogout}><b>Logout</b></button>
+                        <Link className="nav-text-2 nav-button ms-2 mt-3 btn btn-sm" to="/dashboard"><b>Timeline</b></Link>
                     </>
                 ) : (
                     <Link className="float-end me-4 nav-text-2 nav-button mt-3 btn btn-sm" to="/login"><b>Login</b></Link>
