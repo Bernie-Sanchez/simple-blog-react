@@ -1,26 +1,33 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import CreateBlog from './pages/CreateBlog';
+import EditBlog from './pages/EditBlog';
+import ViewBlog from './pages/ViewBlog';
+import Logout from './pages/Logout';
+import Profile from './pages/Profile';
+import Comment from './pages/Comment';
+import './css/Pages.css';
 
 function App() {
-  return (
-    <Router>
-      <nav>
-        <Link to="/">Home</Link> | {' '}
-        <Link to="/register">Register</Link> | {' '}
-        <Link to="/login">Login</Link>
-      </nav>
-
-      <hr />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </Router>
-  );
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/create" element={<CreateBlog />} />
+                <Route path="/edit/:id" element={<EditBlog />} />
+                <Route path="/view/:id" element={<ViewBlog />} />
+                <Route path="/logout" element={<Logout />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/comment/:id" element={<Comment />} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;

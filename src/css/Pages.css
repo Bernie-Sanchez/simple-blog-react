@@ -1,0 +1,299 @@
+/* LOGIN PAGE */
+.login-body {
+    text-align: center;
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: 1px 10px 30px 5px rgb(131, 72, 0);
+    color: rgb(131, 72, 0);
+}
+
+/* LOGIN PAGE */
+.login-button {
+    background-color: rgb(131, 72, 0);
+    color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-left: 6px;
+    transition: transform .3s;
+}
+
+/* LOGIN PAGE */
+.login-button:hover {
+    background-color: white;
+    color: rgb(131, 72, 0);
+    transform: scale(1.1);
+}
+
+
+
+/* REGISTER PAGE */
+.register-body {
+    text-align: center;
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: 1px 10px 30px 5px rgb(131, 72, 0);
+    color: rgb(131, 72, 0);
+}
+
+/* REGISTER PAGE */
+.register-button {
+    background-color: rgb(131, 72, 0);
+    color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    transition: transform .3s;
+}
+
+/* REGISTER PAGE */
+.register-button:hover {
+    background-color: white;
+    color: rgb(131, 72, 0);
+    transform: scale(1.1);
+}
+
+
+
+/* CREATE BLOG PAGE */
+.createBlog-body {
+    text-align: center;
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 15px;
+    color: rgb(131, 72, 0);
+}
+
+/* CREATE BLOG PAGE */
+.createBlog-button {
+    background-color: rgb(131, 72, 0);
+    color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-left: 6px;
+    transition: transform .3s;
+}
+
+/* CREATE BLOG PAGE */
+.createBlog-button:hover {
+    background-color: white;
+    color: rgb(131, 72, 0);
+    transform: scale(1.1);
+}
+
+/* CREATE BLOG PAGE */
+.create-form {
+    border: 2px solid black;
+}
+
+
+
+/* DASHBOARD PAGE */
+.dashboard-body {
+    text-align: center;
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 15px;
+    color: rgb(131, 72, 0);
+}
+
+/* DASHBOARD PAGE */
+.create-button {
+    background-color: rgb(131, 72, 0);
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    transition: transform .3s;
+}
+
+/* DASHBOARD PAGE */
+.create-button:hover {
+    background-color: white;
+    color: rgb(131, 72, 0);
+    transform: scale(1.1);
+}
+
+/* DASHBOARD PAGE */
+.buttons {
+    text-decoration: none;
+    color: rgb(131, 72, 0);
+    transition: transform .3s;
+}
+
+/* DASHBOARD PAGE */
+.buttons:hover {
+    color: black;
+    transform: scale(1.3);
+}
+
+
+
+/* EDIT PAGE */
+.existing-image {
+    max-height: 200px;
+    height: 100%;
+    margin: auto;
+    display: block;
+    border: 3px solid rgb(131, 72, 0);
+    border-radius: 10px;
+}
+
+
+
+/* VIEW PAGE */
+.show-image {
+    max-height: 400px;
+    height: 100%;
+    margin: auto;
+    display: block;
+    border: 3px solid rgb(131, 72, 0);
+    border-radius: 10px;
+}
+
+
+
+/* COMMENT PAGE */
+.comment-image {
+    max-height: 200px;
+    height: 100%;
+    margin: auto;
+    display: block;
+    border: 3px solid rgb(131, 72, 0);
+    border-radius: 10px;
+}
+
+/* COMMENT PAGE */
+.comments-image {
+    max-height: 100px;
+    height: 100%;
+    margin: auto;
+    display: block;
+    border: 3px solid rgb(131, 72, 0);
+    border-radius: 10px;
+}
+
+/* COMMENT PAGE */
+.comment-border {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+/* COMMENT PAGE */
+.comment-button {
+    background-color: rgb(131, 72, 0);
+    color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    transition: transform .3s;
+}
+
+/* COMMENT PAGE */
+.comment-button:hover {
+    background-color: white;
+    color: rgb(131, 72, 0);
+    transform: scale(1.1);
+}
+
+
+
+
+.border-card {
+    border: 2px solid black;
+}
+
+.p-text {
+    text-align: left;
+    font-size: 12px;
+}
+
+.text-color-1 {
+    color: rgb(131, 72, 0);
+    text-decoration: none;
+}
+
+.back-button {
+    background-color: white;
+    color: rgb(131, 72, 0);
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-right: 6px;
+    transition: transform .3s;
+}
+
+.back-button:hover {
+    background-color: rgb(131, 72, 0);
+    color: white;
+    transform: scale(1.1);
+}
+
+.text-size-8 {
+    font-size: 8px;
+}
+
+.text-size-9 {
+    font-size: 9px;
+}
+
+.text-size-10 {
+    font-size: 10px;
+}
+
+.text-size-11 {
+    font-size: 11px;
+}
+
+.text-size-12 {
+    font-size: 12px;
+}
+
+.text-size-13 {
+    font-size: 13px;
+}
+
+.text-size-14 {
+    font-size: 14px;
+}
+
+.text-size-15 {
+    font-size: 15px;
+}
+
+.text-size-16 {
+    font-size: 16px;
+}
+
+.text-size-17 {
+    font-size: 17px;
+}
+
+.text-size-18 {
+    font-size: 18px;
+}
+
+.text-size-19 {
+    font-size: 19px;
+}
+
+.text-size-20 {
+    font-size: 20px;
+}
+
+.text-size-21 {
+    font-size: 21px;
+}
+
+.text-size-22 {
+    font-size: 22px;
+}
+
+.text-size-23 {
+    font-size: 23px;
+}
+
+.text-size-24 {
+    font-size: 24px;
+}
+
+.text-size-25 {
+    font-size: 25px;
+}
