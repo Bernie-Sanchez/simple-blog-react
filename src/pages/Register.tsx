@@ -11,16 +11,37 @@ const Register = () => {
     const handleRegister = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        const { error } = await supabase.auth.signUp({
+        const { data: { user }, error } = await supabase.auth.signUp({
             email,
             password,
         });
 
         if (error) {
-            setMessage(error.message);
-        } else {
-            navigate("/login");
+            alert(error.message);
+            return;
         }
+
+        if (user) {
+            const randomFourDigits = Math.floor(1000 + Math.random() * 9000);
+            const displayName = `Unknown Author@${randomFourDigits}`;
+
+            const { error: profileError } = await supabase
+                .from('profiles')
+                .insert({
+                    id: user.id,
+                    display_name: displayName,
+                    first_name: '',
+                    middle_name: '',
+                    last_name: '',
+                });
+
+            if (profileError) {
+                alert(profileError.message);
+                return;
+            }
+        }
+
+        navigate('/login');
     };
 
     return (
