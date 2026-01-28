@@ -69,7 +69,7 @@ const Dashboard = () => {
                 <div className="row">
                     {blogs.map(blog => (
                         <div className="col-lg-3 col-md-4 col-sm-6" key={blog.id}>
-                            <div className="dashboard-body">
+                            <div className="dashboard-body mb-3">
                                 <b className="text-size-17">{blog.title}</b>
                                 <p className="text-size-12">{new Date(blog.created_at).toLocaleDateString('en-US', {month: 'short', day: '2-digit', year: 'numeric'})}</p>
                                 <br /><br />
