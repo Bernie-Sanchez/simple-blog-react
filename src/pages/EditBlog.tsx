@@ -84,6 +84,22 @@ const EditBlog = () => {
                 .getPublicUrl(fileName);
 
             imageUrl = data.publicUrl;
+
+            if (existingImage) {
+                const oldImagePath = existingImage.split('/blog-images/')[1];
+
+                if (oldImagePath) {
+                    const { error: deleteError } = await supabase.storage
+                        .from('blog-images')
+                        .remove([oldImagePath]);
+
+                    if (deleteError) {
+                        alert(deleteError.message);
+                        setLoading(false);
+                        return;
+                    }
+                }
+            }
         }
 
         const { data, error } = await supabase
@@ -105,6 +121,39 @@ const EditBlog = () => {
         alert("Blog successfully updated");
         setLoading(false);
         navigate('/dashboard');
+    };
+
+    const handleRemoveImage = async () => {
+        const confirmDelete = window.confirm('Delete this image?');
+
+        if (!confirmDelete) return;
+
+        if (existingImage) {
+            const imagePath = existingImage.split('/blog-images/')[1];
+
+            if (imagePath) {
+                const { error: deleteError } = await supabase.storage
+                    .from('blog-images')
+                    .remove([imagePath]);
+
+                if (deleteError) {
+                    alert(deleteError.message);
+                    return;
+                }
+            }
+        }
+
+        const { error } = await supabase
+            .from('blogs')
+            .update({ image_url: null })
+            .eq('id', blogID);
+
+        if (error) {
+            alert(error.message);
+            return;
+        }
+
+        setExistingImage(null);
     };
 
     return (
@@ -132,8 +181,15 @@ const EditBlog = () => {
                                         <textarea className="form-control form-control-sm mb-2" style={{ border: '1px solid black', borderRadius: '10px' }} placeholder="Content" rows={7} value={content} onChange={(e) => setContent(e.target.value)} required />
 
                                         <label htmlFor="" className="ms-2 mb-1 text-size-14"><b><i>Picture/Image</i></b></label>
-                                        <input className="form-control form-control-sm mb-2" style={{ border: '1px solid black', borderRadius: '10px' }} type="file" accept="image/*" onChange={(e) => setImage(e.target.files?.[0] || null)} />
-                                        {existingImage && (<img src={existingImage} alt="Current Image" className="mt-2 img-fluid existing-image mb-5"/>)}
+                                        <input className="form-control form-control-sm mb-3" style={{ border: '1px solid black', borderRadius: '10px' }} type="file" accept="image/*" onChange={(e) => setImage(e.target.files?.[0] || null)} />
+                                        {existingImage && (
+                                            <div className="text-center mb-5">
+                                                <img src={existingImage} alt="Current Image" className="mt-2 mb-2 img-fluid existing-image"/>
+                                                <span className="image-border p-2">
+                                                    <button type="button" className="btn btn-sm delete-button" onClick={handleRemoveImage}><i className="fa-solid fa-trash-can"></i></button>
+                                                </span>
+                                            </div>
+                                        )}
                                         
                                         <button className="shadow-xl createBlog-button float-end" disabled={loading}>
                                             <b>{loading ? 'Updating...' : 'Update Blog'}</b>

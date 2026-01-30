@@ -55,3 +55,18 @@ body {
     border: 3px solid rgb(131, 72, 0);
     border-radius: 10px;
 }
+
+.page-button {
+    color: rgb(131, 72, 0);
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.page-button:hover {
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgb(131, 72, 0);
+    color: white;
+    transform: scale(1.1);
+}

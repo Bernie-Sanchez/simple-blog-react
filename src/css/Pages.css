@@ -194,8 +194,40 @@
     transform: scale(1.1);
 }
 
+/* COMMENT PAGE */
+.edit-comment-button {
+    background-color: rgb(131, 72, 0);
+    color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    transition: transform .3s;
+}
+
+/* COMMENT PAGE */
+.edit-comment-button:hover {
+    background-color: white;
+    color: rgb(131, 72, 0);
+    transform: scale(1.1);
+}
 
 
+
+
+
+.delete-button {
+    transition: transform .3s;
+    text-decoration: none;
+}
+
+.delete-button:hover {
+    color: black;
+    transform: scale(1.3);
+}
+
+.image-border {
+    border: 1px solid black;
+    border-radius: 10px;
+}
 
 .border-card {
     border: 2px solid black;

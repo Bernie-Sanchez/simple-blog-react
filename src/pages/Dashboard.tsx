@@ -37,6 +37,62 @@ const Dashboard = () => {
         const confirmDelete = window.confirm("Are you sure you want to delete this blog?");
         if (!confirmDelete) return;
 
+        const { data: blogImage, error: fetchError } = await supabase
+            .from('blogs')
+            .select('image_url')
+            .eq('id', blogID)
+            .single();
+
+        if (fetchError) {
+            alert(fetchError.message);
+            return;
+        }
+
+        const { data: comments, error: fetchCommentError } = await supabase
+            .from('comments')
+            .select('image_url')
+            .eq('blog_id', blogID);
+
+        if (fetchCommentError) {
+            alert(fetchCommentError.message);
+            return;
+        }
+
+        const commentImagePaths = comments
+            .filter(c => c.image_url)
+            .map(c => {
+                const url = new URL(c.image_url);
+                return url.pathname.replace('/storage/v1/object/public/comment-images/', '');
+            })
+            .filter(Boolean);
+
+        if (commentImagePaths.length > 0) {
+            const { error: deleteImagesError } = await supabase.storage
+                .from('comment-images')
+                .remove(commentImagePaths);
+
+            if (deleteImagesError) {
+                alert(deleteImagesError.message);
+                return;
+            }
+        }
+
+        if (blogImage.image_url) {
+            const url = new URL(blogImage.image_url);
+            const imagePath = url.pathname.replace('/storage/v1/object/public/blog-images/', '');
+
+            if (imagePath) {
+                const { error: storageError } = await supabase.storage
+                    .from('blog-images')
+                    .remove([imagePath]);
+
+                if (storageError) {
+                    alert(storageError.message);
+                    return;
+                }
+            }
+        }
+
         const { error } = await supabase
             .from('blogs')
             .delete()
@@ -70,7 +126,15 @@ const Dashboard = () => {
                     {blogs.map(blog => (
                         <div className="col-lg-3 col-md-4 col-sm-6" key={blog.id}>
                             <div className="dashboard-body mb-3">
-                                <b className="text-size-17">{blog.title}</b>
+                                <b className="text-size-17">
+                                    {blog.title}
+                                    {blog.image_url ? (
+                                        <img src={blog.image_url} alt="Blog Image" className="img-fluid mb-2 mt-2" style={{ height: '120px', width: '100%', objectFit: 'cover', borderRadius: '6px' }}/>
+                                    ) : (
+                                        <div className="mb-2 mt-2 d-flex align-items-center justify-content-center" style={{ height: '120px', backgroundColor: '#f1f1f1', borderRadius: '6px', fontSize: '12px', color: '#888' }}>No Image</div>
+                                    )}
+
+                                </b>
                                 <p className="text-size-12">{new Date(blog.created_at).toLocaleDateString('en-US', {month: 'short', day: '2-digit', year: 'numeric'})}</p>
                                 <br /><br />
 
